@@ -27,6 +27,7 @@ Component wraps ScrollView so all ScrollView properties are available.
 - **toIndex** - Optional - (Integer) - Don't allow scrolling below this page index.
 - **fromIndex** - Optional - (Integer) - Don't allow scrolling above this page index.
 - **onPageIndexChange** - Optional - (Function) - Called when page index is changed (user scrolled).
+- **forceUpdate** - Optional - (Number) - Forces render be called if it changes.
 
 ### Known issues
 Currently only iOS is supported. Android support is coming.

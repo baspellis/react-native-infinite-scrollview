@@ -23,22 +23,22 @@ export default class InfiniteScrollView extends Component {
         width: 0,
         height: 0,
       },
-      shouldUpdate: this.props.shouldUpdate || 0,
+      forceUpdate: this.props.forceUpdate || 0,
     }
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps.shouldUpdate != undefined) {
-      this.setState({shouldUpdate: nextProps.shouldUpdate});
+    if (nextProps.forceUpdate != undefined) {
+      this.setState({forceUpdate: nextProps.forceUpdate});
     }
   }
   shouldComponentUpdate(nextProps, nextState) {
     var index = this._index(nextProps);
     var range = this._pagesRange(nextState);
-    var shouldUpdate = this.state.shouldUpdate;
+    var forceUpdate = this.state.forceUpdate;
     return (
       nextState.size !== this.state.size ||  
       range.to !== this._renderedRange.to || range.from !== this._renderedRange.from ||
-      this.state.index !== index || (nextProps.shouldUpdate != undefined && shouldUpdate != nextProps.shouldUpdate)
+      this.state.index !== index || (nextProps.forceUpdate != undefined && forceUpdate != nextProps.forceUpdate)
     );
   }
   componentDidUpdate() {
